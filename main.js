@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
         mediaElement.controls = true;
 
         // Create caption element
-        const captionElement = document.createElement('p');
+        const captionElement = document.getElementById('postcap');
         captionElement.classList.add('text-lg', 'font-semibold', 'mb-2');
         captionElement.textContent = caption;
 
