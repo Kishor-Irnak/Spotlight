@@ -114,7 +114,6 @@
     </div>
  </aside>
 <!--Sidebar/--> 
-
 <!--Microsft Wd-->
    <div class=" sm:ml-64 dark:bg-gray-800 grid grid-cols-1">
     <!--NAV-->
@@ -129,21 +128,108 @@
     
     <!--Cont2-->
    
-    <!--TESIMONA-->
+    <!--T-->
  
-    <!--TESIMONA/-->
+    <!--T/-->
     
     <div class="container mx-auto p-4">
-      
-   
-        <!-- Media input -->
-        <input type="file" id="postMedia" accept="image/*, video/*" class="hidden mb-2">
-        <!-- Caption input -->
-        <textarea id="postCaption" class="w-full p-2 border rounded hidden" placeholder="Enter your post caption..."></textarea>
-        <!-- Create post button -->
-        <button id="createPostBtn" class="bg-blue-500 text-white font-bold py-2 px-4 rounded hidden">Create Post</button>
-        <div id="postsContainer" class="mt-8"></div>
+       
+  <!-- Main modal -->
+  <div id="crud-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+      <div class="relative p-4 w-full max-w-md max-h-full">
+          <!-- Modal content -->
+          <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+              <!-- Modal header -->
+              <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                  <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                      Create New Product
+                  </h3>
+                  <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="crud-modal">
+                      <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                      </svg>
+                      <span class="sr-only">Close modal</span>
+                  </button>
+              </div>
+              <!-- Modal body -->
+              <form class="p-4 md:p-5">
+                  <div class="grid gap-4 mb-4 grid-cols-2">
+                      <div class="col-span-2">
+                          <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+                          <input type="file" name="name" id="postMedia" accept="image/*, video/*" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type product name" required="">
+                      </div>
+                      <div class="col-span-2">
+                          <label for="postCaption" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Prol</label>
+                          <textarea id="postCaption" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write product description here"></textarea>                    
+                      </div>
+                  </div>
+                  <button type="submit" id="createPostBtn" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                      <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
+                      Upload
+                  </button>
+              </form>
+          </div>
+      </div>
+     
+  </div> 
+  <!--POST-->
+  
+<div class="flex items-start gap-2.5">
+    <img class="w-8 h-8 rounded-full" src="Assets/images/spot.png" alt="Jese image">
+    <div class="flex flex-col gap-1">
+       <div class="flex items-center space-x-2 rtl:space-x-reverse">
+          <span class="text-sm font-semibold text-gray-900 dark:text-white">@Kishor irnak</span>
+          <span class="text-sm font-normal text-gray-500 dark:text-gray-400">11:46</span>
+       </div>
+       <div class="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl dark:bg-gray-700">
+         <p class="text-sm font-normal text-gray-900 dark:text-white"><div id="postcap"> </div></p>
+         <div class="group relative my-2.5">
+             <div class="absolute w-full h-full bg-gray-900/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-center justify-center">
+                 <button data-tooltip-target="download-image" class="inline-flex items-center justify-center rounded-full h-10 w-10 bg-white/30 hover:bg-white/50 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50">
+                     <svg class="w-5 h-5 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 18">
+                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 1v11m0 0 4-4m-4 4L4 8m11 4v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3"/>
+                     </svg>
+                 </button>
+                 <div id="download-image" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                     Download image
+                     <div class="tooltip-arrow" data-popper-arrow></div>
+                 </div>
+             </div>
+             <div id="postsContainer" class="mt-8"></div>
+         </div>
+       </div>
+       <span class="text-sm font-normal text-gray-500 dark:text-gray-400">Delivered</span>
     </div>
+    <button id="dropdownMenuIconButton" data-dropdown-toggle="dropdownDots" data-dropdown-placement="bottom-start" class="inline-flex self-center items-center p-2 text-sm font-medium text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-800 dark:focus:ring-gray-600" type="button">
+       <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 4 15">
+          <path d="M3.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 6.041a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 5.959a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"/>
+       </svg>
+    </button>
+    <div id="dropdownDots" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-40 dark:bg-gray-700 dark:divide-gray-600">
+       <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownMenuIconButton">
+          <li>
+             <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Reply</a>
+          </li>
+          <li>
+             <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Forward</a>
+          </li>
+          <li>
+             <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Copy</a>
+          </li>
+          <li>
+             <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Report</a>
+          </li>
+          <li>
+             <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Delete</a>
+          </li>
+       </ul>
+    </div>
+ </div>
+ 
+  <!--POST/-->
+  <div id="postsContainer" class="mt-8"></div>
+
+
     <!--BOTTOM NAV-->
     
 
@@ -183,7 +269,7 @@
             <div class="tooltip-arrow" data-popper-arrow></div>
         </div>
              <!-- Plus button -->
-        <button id="plusButton" data-tooltip-target="tooltip-post" type="button" class="inline-flex flex-col items-center justify-center p-4 hover:bg-gray-50 dark:hover:bg-gray-800 group">
+        <button id="plusButton" data-modal-target="crud-modal" data-modal-toggle="crud-modal" data-tooltip-target="tooltip-post" type="button" class="inline-flex flex-col items-center justify-center p-4 hover:bg-gray-50 dark:hover:bg-gray-800 group">
             <svg class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
             </svg>
